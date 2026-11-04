@@ -607,6 +607,12 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
 .hb-info{min-height:28px; margin:6px 0 4px; font-size:20px; color:var(--maroon-ink)}
 .hb-info .hint{color:var(--muted)}
 #spendInfo .hint{font-size:18px}
+#spendChart{gap:2px}
+#spendChart .hb-row{grid-template-columns:220px 1fr; padding:1px 6px}
+#spendChart .hb-f{height:21px}
+#spendChart .hb-l,#spendChart .hb-v{font-size:17px}
+.hb-g{font-size:14px; font-weight:700; color:var(--yes-ink); white-space:nowrap}
+@media (max-width: 760px){ #spendChart .hb-row{grid-template-columns:120px 1fr} }
 /* ---- slides 41-50 ---- */
 .chips{display:flex; flex-wrap:wrap; gap:10px}
 .chip{padding:8px 18px; border:2px solid var(--maroon); font-size:22px; font-weight:700; color:var(--maroon)}
@@ -1356,12 +1362,12 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
 </section>
 
 <!-- ============ 33 · enterprise AI spending (old slide 33) ============ -->
-<section class="slide content" data-name="Enterprise AI spending 2025">
+<section class="slide content" data-name="Application AI spend 2026">
   <div class="deco tri-maroon corner-m" aria-hidden="true"></div>
   <div class="deco corner-gwrap" aria-hidden="true"><div class="tri-gold"></div></div>
   <div class="rule" style="left:112px; top:99px; width:94px" aria-hidden="true"></div>
-  <h2 class="title">Enterprise AI spending 2025</h2>
-  <figure class="fig figwide" aria-label="Enterprise AI spending by category, annualized revenue in $mm"><div class="hb" id="spendChart"></div><p class="hb-info" id="spendInfo" aria-live="polite"></p><figcaption style="font-size:18px">Annualized revenue ($mm) — coding is by far the largest category <span class="small">· Source: a16z</span></figcaption></figure>
+  <h2 class="title">Application AI spend 2026</h2>
+  <figure class="fig figwide" aria-label="2026 application AI spend by category, in billions of dollars"><div class="hb" id="spendChart"></div><p class="hb-info" id="spendInfo" aria-live="polite"></p><figcaption style="font-size:18px">2026 application AI spend ($B) — coding and chatbots account for 76% of the $77.3B market <span class="small">· Source: Menlo Ventures</span></figcaption></figure>
   <p style="position:absolute; left:820px; top:500px; width:360px; margin:0; padding:10px 14px; background:var(--grey); border-left:5px solid var(--gold); font-size:18px; line-height:1.35; color:var(--maroon-ink)"><b>2026 outlook:</b> enterprise AI spending is expected to surpass <b>$170 billion</b>. <span class="small">Source: <a href="https://menlovc.com/perspective/2026-the-state-of-enterprise-ai/" target="_blank" rel="noopener" style="color:inherit">Menlo Ventures</a></span></p>
 </section>
 
@@ -2615,24 +2621,25 @@ window.__demos=Object.assign(window.__demos||{},{nw,nn});
 })();
 </script>
 <script>
-/* 33 · enterprise AI spending: native bar chart; values are the data labels of the a16z chart it replaces */
+/* 25 · application AI spend 2026: native bar chart; values, YoY growth and shares from the Menlo Ventures chart
+   "Coding Leads AI Application Spend" (2026: The State of Enterprise AI) */
 (function(){
-  const data=[['Coding',3000],['Legal',500],['Support',400],['Medical/Health Admin',350],['Search',250],['Real Estate',150],['Writing/Editing',150],['Financial/Investment Analysts',50]];
-  const total=data.reduce((t,[,v])=>t+v,0), max=data[0][1], fmt=v=>'$'+v.toLocaleString('en-US');
+  const data=[['Coding',34.0,'+7.7×',44],['Chatbots',25.0,'+3.0×',32],['Healthcare',3.7,'+2.5×',5],['Customer success',2.7,'+4.3×',3],['Legal',1.8,'+2.8×',2],['IT',1.6,'+2.3×',2],['Creators',1.5,'+5.0×',2],['Sales',1.4,'+3.6×',2],['Marketing',1.2,'+1.8×',2],['Human resources',0.9,'+2.5×',1],['Government',0.9,'+2.6×',1],['Financial services',0.8,'+8.0×',1],['Design',0.6,'new',1],['Other',1.8,'+2.5×',2]];
+  const max=data[0][1], fmt=v=>'$'+v.toFixed(1)+'B';
   const box=document.getElementById('spendChart'), info=document.getElementById('spendInfo');
   if(!box) return;
-  const hint='<span class="hint">Click a category to see its share of the total.</span>';
+  const hint='<span class="hint">Click a category to see its share and growth.</span>';
   info.innerHTML=hint;
-  data.forEach(([name,v])=>{
+  data.forEach(([name,v,g,share])=>{
     const b=document.createElement('button'); b.type='button'; b.className='hb-row'; b.setAttribute('aria-pressed','false');
-    b.setAttribute('aria-label',`${name}: ${fmt(v)}mm`);
-    b.innerHTML=`<span class="hb-l">${name}</span><span class="hb-t"><span class="hb-f" style="width:${v/max*82}%"></span><span class="hb-v">${fmt(v)}</span></span>`;
+    b.setAttribute('aria-label',`${name}: ${fmt(v)}, ${g==='new'?'new in 2026':g+' year over year'}`);
+    b.innerHTML=`<span class="hb-l">${name}</span><span class="hb-t"><span class="hb-f" style="width:${v/max*78}%"></span><span class="hb-v">${fmt(v)}</span><span class="hb-g">${g==='new'?'new in 2026':g+' YoY'}</span></span>`;
     b.onclick=()=>{
       const on=b.getAttribute('aria-pressed')!=='true';
       box.querySelectorAll('.hb-row').forEach(r=>r.setAttribute('aria-pressed','false'));
       b.setAttribute('aria-pressed',String(on)); box.classList.toggle('picked',on);
-      const share=Math.round(v/total*100), rel=name==='Coding'?`${(max/data[1][1]).toFixed(0)}× the next-largest (Legal)`:`Coding is ${Math.round(max/v)}× larger`;
-      info.innerHTML=on?`<b>${name}</b>: ${fmt(v)}mm — ${share}% of the ${fmt(total)}mm total; ${rel}.`:hint;
+      const gr=g==='new'?'new category in 2026':`${g} year over year`;
+      info.innerHTML=on?`<b>${name}</b>: ${fmt(v)} — ${share}% of the $77.3B market; ${gr}.`:hint;
     };
     box.appendChild(b);
   });
