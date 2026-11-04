@@ -849,6 +849,22 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
 .mtr-chart svg .mtr-task{font-size:13px; font-style:italic; fill:#7a7272}
 </style>
 <style>
+/* appendix: AI spend per employee (Ramp top spenders) */
+.sp{position:absolute; left:200px; top:196px; width:992px; height:500px; display:flex; flex-direction:column; gap:6px; color:var(--maroon-ink)}
+.sp-bar{display:flex; justify-content:space-between; align-items:center}
+.slide .sp-head{margin:0; font-size:20px; font-weight:700}
+.sp-chart{position:relative}
+.sp-chart svg{display:block; width:100%; height:auto; overflow:visible; touch-action:pan-y}
+.sp-chart svg text{font-family:var(--sans); font-size:15px; fill:var(--muted)}
+.sp-chart svg .sp-lbl{font-size:16px; font-weight:700}
+.slide .sp-cap{margin:4px 0 0; font-size:20px}
+.slide .sp-src{margin:auto 0 0; font-size:13px; color:var(--muted)}
+.slide .sp-src a{color:inherit}
+.slide .sp-src a.goto, .slide .ado-src a.goto{color:var(--maroon); font-weight:700; text-decoration:none}
+@media (max-width: 760px){ .sp{position:static; width:auto; height:auto; margin-top:12px} }
+</style>
+
+<style>
 /* model capabilities (2/2): Hugging Face incident screenshot */
 .hfi{position:absolute; left:108px; top:196px; width:1084px; height:478px; margin:0; display:flex; flex-direction:column; align-items:center; gap:10px}
 .hfi img{flex:1; min-height:0; max-width:100%; object-fit:contain; box-shadow:0 4px 18px rgba(0,0,0,.16)}
@@ -1510,7 +1526,7 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
       <div class="ado-tip" id="adoTip" role="tooltip" hidden></div>
     </div>
     <p class="ado-cap">Adoption has more than doubled since mid-2023 &mdash; and Anthropic passed OpenAI in May 2026</p>
-    <p class="ado-src">Source: Ramp AI Index (<a href="https://ramp.com/data/ai-index" target="_blank" rel="noopener">https://ramp.com/data/ai-index</a>). Hover for monthly values</p>
+    <p class="ado-src">Source: Ramp AI Index (<a href="https://ramp.com/data/ai-index" target="_blank" rel="noopener">https://ramp.com/data/ai-index</a>). Hover for monthly values. <a class="goto" href="#69" data-goto="AI spend per employee (appendix)">AI spend per employee (appendix) &rarr;</a></p>
   </div>
 </section>
 
@@ -2087,6 +2103,27 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
     <p class="eci-src">Source: <a href="https://epoch.ai/eci?view=graph&amp;tab=release-date" target="_blank" rel="noopener">Epoch AI, Epoch Capabilities Index</a> (CC BY 4.0), retrieved Nov 1, 2026 · <span id="eciCount">254 models</span> · hover a point for details; click an organization to highlight it</p>
   </div>
 </section>
+
+<!-- ============ appendix: AI spend per employee (Ramp AI Index, top spenders) ============ -->
+<section class="slide content" data-name="AI spend per employee (appendix)">
+  <div class="deco tri-maroon corner-m" aria-hidden="true"></div>
+  <div class="deco corner-gwrap" aria-hidden="true"><div class="tri-gold"></div></div>
+  <div class="rule" style="left:112px; top:99px; width:94px" aria-hidden="true"></div>
+  <h2 class="title">AI spend per employee</h2>
+  <div class="sp" id="sp">
+    <div class="sp-bar">
+      <p class="sp-head">Monthly AI spend per employee, firms paying for AI (US)</p>
+      <div class="mtr-seg" id="spScale" role="group" aria-label="Vertical scale"><button type="button" data-v="log" aria-pressed="true">Log</button><button type="button" data-v="lin" aria-pressed="false">Linear</button></div>
+    </div>
+    <div class="sp-chart">
+      <svg id="spPlot" viewBox="0 0 992 330" role="img" aria-label="Ramp AI Index, AI spend per employee per month, September 2023 to September 2026: top 1% of firms from $920 to $9,568; top 10% from $63 to $813; median from $2.29 to $15.70"></svg>
+      <div class="ado-tip" id="spTip" role="tooltip" hidden></div>
+    </div>
+    <p class="sp-cap">The top 1% of AI-spending firms now spend about <b>$9,568</b> per employee per month, roughly <b>609&times;</b> the median firm ($15.70).</p>
+    <p class="sp-src">Source: Ramp AI Index (<a href="https://ramp.com/data/ai-index" target="_blank" rel="noopener">https://ramp.com/data/ai-index</a>), card and bill-pay transactions of US businesses; Sep 2023 &ndash; Sep 2026. Hover for monthly values. <a class="goto" href="#34" data-goto="AI adoption">&larr; Back to AI adoption</a></p>
+  </div>
+</section>
+
 
 <!-- ============ 23 · capex explosion (old slide 23) ============ -->
 <section class="slide content" data-name="A capex explosion">
@@ -3011,7 +3048,7 @@ draw();
   const el=(t,a,txt)=>{const e=document.createElementNS(NS,t); for(const k in a) e.setAttribute(k,a[k]); if(txt!=null) e.textContent=txt; svg.appendChild(e); return e;};
   const x=i=>L+i*(W-L-R)/(n-1), y=v=>B-v/max*(B-T);
   for(let g=0; g<=max; g+=10){ el('line',{x1:L,x2:W-R,y1:y(g),y2:y(g),stroke:g?'#e3e0e0':'#9c9596','stroke-width':g?1:1.5}); el('text',{x:L-10,y:y(g)+5,'text-anchor':'end'},g+'%'); }
-  D.m.forEach((m,i)=>{ if(m.endsWith('-01')){ el('line',{x1:x(i),x2:x(i),y1:B,y2:B+6,stroke:'#9c9596'}); el('text',{x:x(i),y:B+24,'text-anchor':'middle'},m.slice(0,4)); }});
+  D.m.forEach((m,i)=>{ const yr=m.endsWith('-01'); el('line',{x1:x(i),x2:x(i),y1:B,y2:B+(yr?7:3),stroke:'#9c9596'}); if(yr) el('text',{x:x(i),y:B+24,'text-anchor':'middle'},m.slice(0,4)); });
   const lbl=[];
   S.slice().reverse().forEach(([k,name,c,w])=>{
     const v=D.s[k];
@@ -3040,5 +3077,49 @@ draw();
   };
   const hide=()=>{tip.hidden=true; guide.setAttribute('visibility','hidden'); dots.forEach(d=>d.setAttribute('visibility','hidden'));};
   hit.addEventListener('pointermove',move); hit.addEventListener('pointerdown',move); hit.addEventListener('pointerleave',hide);
+})();
+</script>
+
+<script>
+(function(){
+  const svg=document.getElementById('spPlot'); if(!svg) return;
+  const tip=document.getElementById('spTip'), box=svg.parentNode;
+  const D={"m":["2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05","2026-06","2026-07","2026-08","2026-09"],"s":{"Top 1%":[920.05,933.17,883.55,1105.9,1000.0,982.25,1225.47,1572.79,1406.16,1400.7,1767.04,1692.12,1605.19,1471.82,1673.21,1871.76,2069.15,2322.67,2437.46,2565.99,2447.36,2194.45,2467.38,2642.2,2515.49,3334.32,3063.05,4288.43,3390.4,3348.02,4812.03,4715.01,5133.59,6563.82,9873.12,8568.17,9567.53],"Top 10%":[62.85,67.73,78.3,74.23,85.93,83.06,107.49,93.28,104.58,99.45,104.29,103.13,103.33,108.34,105.66,117.98,142.86,133.29,143.97,149.52,160.51,165.61,192.41,200.0,209.91,238.42,229.65,260.34,296.72,351.76,424.9,472.21,520.9,579.07,721.14,740.47,813.43],"Median":[2.29,2.61,2.73,2.67,2.86,3.04,3.14,3.11,3.13,3.0,3.06,3.04,3.04,3.17,3.32,3.26,3.52,3.87,4.0,4.0,4.15,4.29,4.6,5.0,5.0,5.45,5.37,5.56,6.32,7.5,9.68,10.97,12.05,12.84,14.19,14.74,15.7]}}; // Ramp AI Index: AI spend per employee per month ($), firms paying for AI
+  const S=[['Top 1%','Top 1% of firms','#811920',4],['Top 10%','Top 10%','#C99F53',3],['Median','Median firm','#3f3a3b',3]];
+  const NS='http://www.w3.org/2000/svg', W=992, H=330, L=66, R=150, T=10, B=296, n=D.m.length;
+  const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  let scale='log';
+  const el=(t,a,txt)=>{const e=document.createElementNS(NS,t); for(const k in a) e.setAttribute(k,a[k]); if(txt!=null) e.textContent=txt; svg.appendChild(e); return e;};
+  const money=v=>v>=1000?'$'+Math.round(v).toLocaleString():v>=100?'$'+Math.round(v):'$'+v.toFixed(2);
+  function draw(){
+    svg.replaceChildren(); tip.hidden=true;
+    const log=scale==='log', lo=1, hi=log?20000:10000;
+    const x=i=>L+i*(W-L-R)/(n-1);
+    const y=v=>log? B-(Math.log10(Math.max(v,lo))-Math.log10(lo))/(Math.log10(hi)-Math.log10(lo))*(B-T) : B-v/hi*(B-T);
+    const ticks=log?[1,10,100,1000,10000]:[0,2000,4000,6000,8000,10000];
+    for(const t of ticks){ el('line',{x1:L,x2:W-R,y1:y(t),y2:y(t),stroke:t===ticks[0]?'#9c9596':'#e3e0e0','stroke-width':t===ticks[0]?1.5:1}); el('text',{x:L-10,y:y(t)+5,'text-anchor':'end'},'$'+t.toLocaleString()); }
+    D.m.forEach((m,i)=>{ const yr=m.endsWith('-01'); el('line',{x1:x(i),x2:x(i),y1:B,y2:B+(yr?7:3),stroke:'#9c9596'}); if(yr) el('text',{x:x(i),y:B+24,'text-anchor':'middle'},m.slice(0,4)); });
+    const lbl=[];
+    S.forEach(([k,name,c,w])=>{ const v=D.s[k];
+      el('polyline',{points:v.map((d,i)=>x(i).toFixed(1)+','+y(d).toFixed(1)).join(' '),fill:'none',stroke:c,'stroke-width':w,'stroke-linejoin':'round','stroke-linecap':'round'});
+      lbl.push({name,c,v:v[n-1],y:y(v[n-1])}); });
+    lbl.sort((a,b)=>a.y-b.y); for(let i=1;i<lbl.length;i++) if(lbl[i].y-lbl[i-1].y<20) lbl[i].y=lbl[i-1].y+20;
+    lbl.forEach(o=>el('text',{class:'sp-lbl',x:x(n-1)+10,y:o.y+5,style:'fill:'+o.c},o.name+' '+money(o.v)));
+    const guide=el('line',{y1:T,y2:B,stroke:'#9c9596','stroke-dasharray':'3 3',visibility:'hidden'});
+    const dots=S.map(([,,c])=>el('circle',{r:5,fill:c,stroke:'#fff','stroke-width':1.5,visibility:'hidden'}));
+    const hit=el('rect',{x:L,y:T,width:W-L-R,height:B-T,fill:'transparent'});
+    const move=e=>{ const r=svg.getBoundingClientRect(), px=(e.clientX-r.left)*W/r.width;
+      const i=Math.max(0,Math.min(n-1,Math.round((px-L)/(W-L-R)*(n-1)))), cx=x(i);
+      guide.setAttribute('x1',cx); guide.setAttribute('x2',cx); guide.setAttribute('visibility','visible');
+      S.forEach(([k],j)=>{ dots[j].setAttribute('cx',cx); dots[j].setAttribute('cy',y(D.s[k][i])); dots[j].setAttribute('visibility','visible'); });
+      const m=D.m[i]; tip.innerHTML='<b>'+MON[+m.slice(5)-1]+' '+m.slice(0,4)+'</b>'+S.map(([k,name,c])=>'<i style="background:'+c+'"></i>'+name+': '+money(D.s[k][i])).join('<br>');
+      tip.hidden=false; const sx=box.clientWidth/W, tx=cx*sx, tw=tip.offsetWidth;
+      tip.style.left=(tx+16+tw>box.clientWidth? tx-16-tw : tx+16)+'px'; tip.style.top='10px'; };
+    const hide=()=>{ tip.hidden=true; guide.setAttribute('visibility','hidden'); dots.forEach(d=>d.setAttribute('visibility','hidden')); };
+    hit.addEventListener('pointermove',move); hit.addEventListener('pointerdown',move); hit.addEventListener('pointerleave',hide);
+  }
+  const btns=document.querySelectorAll('#spScale button');
+  btns.forEach(b=>b.onclick=()=>{ btns.forEach(x=>x.setAttribute('aria-pressed',String(x===b))); scale=b.dataset.v; draw(); });
+  draw();
 })();
 </script>
