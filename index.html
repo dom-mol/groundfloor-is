@@ -611,6 +611,10 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
 #spendChart .hb-row{grid-template-columns:220px 1fr; padding:1px 6px}
 #spendChart .hb-f{height:26px}
 #spendChart .hb-l,#spendChart .hb-v{font-size:19px}
+#spendChart .hb-row:not(.hl) .hb-f{background:#d4b3b5}
+#spendChart .hl .hb-f{height:34px; box-shadow:0 0 0 3px var(--gold)}
+#spendChart .hl .hb-l{font-weight:700; font-size:22px; color:var(--maroon)}
+#spendChart .hl .hb-v{font-size:24px; color:var(--maroon)}
 .hb-g{font-size:15px; font-weight:700; color:var(--yes-ink); white-space:nowrap}
 @media (max-width: 760px){ #spendChart .hb-row{grid-template-columns:120px 1fr} }
 /* ---- slides 41-50 ---- */
@@ -2631,7 +2635,7 @@ window.__demos=Object.assign(window.__demos||{},{nw,nn});
   const hint='<span class="hint">Click a category to see its share and growth.</span>';
   info.innerHTML=hint;
   data.forEach(([name,v,g,share])=>{
-    const b=document.createElement('button'); b.type='button'; b.className='hb-row'; b.setAttribute('aria-pressed','false');
+    const b=document.createElement('button'); b.type='button'; b.className='hb-row'+(name==='Coding'?' hl':''); b.setAttribute('aria-pressed','false');
     b.setAttribute('aria-label',`${name}: ${fmt(v)}, ${g==='new'?'new in 2026':g+' year over year'}`);
     b.innerHTML=`<span class="hb-l">${name}</span><span class="hb-t"><span class="hb-f" style="width:${v/max*78}%"></span><span class="hb-v">${fmt(v)}</span><span class="hb-g">${g==='new'?'new in 2026':g+' YoY'}</span></span>`;
     b.onclick=()=>{
