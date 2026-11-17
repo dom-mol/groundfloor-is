@@ -923,6 +923,54 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
 .slide .uh-src{top:664px; width:1084px; font-size:12px; line-height:1.35} .slide .uh-src a:not(.goto){color:inherit; text-decoration:underline}
 .slide .uh-src a.goto, .slide .uh-link a.goto{color:var(--maroon); font-weight:700; text-decoration:none}
 .slide .uh-link{top:676px; font-size:15px}
+.dc{position:absolute; left:200px; top:196px; width:992px; color:var(--maroon-ink)}
+.slide .dc-sub{margin:0 0 4px; font-size:19px; color:var(--maroon-ink)}
+.dc svg{display:block; width:950px; height:auto}
+.dc-grid{stroke:var(--grey); stroke-width:1} .dc-base{stroke:#bdbdbd}
+.dc-ax{font:15px var(--sans, inherit); fill:var(--muted)}
+.dc-line{fill:none; stroke-width:4; stroke-linejoin:round; stroke-linecap:round}
+.dc-line.dc-anti{stroke:var(--maroon)} .dc-line.dc-pro{stroke:var(--gold)}
+.dc-dot.dc-anti{fill:var(--maroon)} .dc-dot.dc-pro{fill:var(--gold)} .dc-dot{stroke:#fff; stroke-width:2}
+.dc-val{font-size:14px; font-weight:700} .dc-val.dc-anti,.dc-lab.dc-anti{fill:var(--maroon)} .dc-val.dc-pro,.dc-lab.dc-pro{fill:#9a7433}
+.dc-lab{font-size:20px; font-weight:700}
+.slide b.dc-anti{color:var(--maroon)} .slide b.dc-pro{color:#9a7433}
+.slide .dc-cap{margin:0; font-size:20px; color:var(--maroon-ink)}
+.slide .dc-src{top:650px; width:1084px; font-size:13px; line-height:1.45}
+.slide .dc-src a.goto, .slide .dc-link a.goto{color:var(--maroon); font-weight:700; text-decoration:none}
+.slide .dc-link{left:auto; right:88px; font-size:15px; text-align:right}
+
+/* appendix: API vs. self-hosted break-even calculator */
+.be{position:absolute; left:108px; top:262px; width:1084px; height:392px; display:grid; grid-template-columns:420px minmax(0,1fr); gap:28px; color:var(--maroon-ink)}
+.be-in{display:flex; flex-direction:column; gap:12px}
+.be-pre button{font-size:14px; padding:5px 9px}
+.be-tbl{width:100%; border-collapse:collapse; font-size:15px}
+.be-tbl th,.be-tbl td{padding:4px 6px; border-bottom:1px solid #d9d6d6; text-align:left}
+.be-tbl thead th{background:var(--maroon); color:#fff; font-weight:700; text-align:center}
+.be-tbl thead th:first-child{background:none}
+.be-tbl tbody th{font-weight:600}
+.be-tbl input{width:86px; box-sizing:border-box; padding:3px 6px; border:1px solid #c9c4c4; font:inherit; font-variant-numeric:tabular-nums; color:var(--maroon); text-align:right}
+.be-tbl td{text-align:center}
+.be-sh td{text-align:left} .be-sh span{font-size:13px; color:var(--muted)}
+.be-vol{display:grid; grid-template-columns:auto 1fr; align-items:center; gap:4px 10px; font-size:15px; font-weight:600}
+.be-vol input[type=range]{accent-color:var(--maroon); width:100%}
+.be-vol input[type=number]{width:110px; padding:3px 6px; border:1px solid #c9c4c4; font:inherit; font-weight:400; text-align:right; color:var(--maroon); grid-column:1} .be-vol span:last-child{font-weight:400; color:var(--muted)}
+.be-f{margin:0; padding:6px 10px; background:var(--grey); font-size:13.5px; line-height:1.4}
+.be-out{display:flex; flex-direction:column; gap:8px; min-width:0}
+.be-out svg{width:100%; height:auto; overflow:visible}
+.be-out svg text{font-family:var(--sans); font-size:12px; fill:var(--muted)}
+.be-out svg .ax{stroke:#bdb8b8; stroke-width:1} .be-out svg .gl{stroke:#ebe8e8; stroke-width:1}
+.be-out svg .la{fill:none; stroke:var(--maroon); stroke-width:3.5} .be-out svg .ls{fill:none; stroke:var(--gold); stroke-width:3.5}
+.be-out svg .lan{fill:none; stroke:var(--maroon); stroke-width:1.5; stroke-dasharray:5 5; opacity:.6} .be-out svg .lsn{fill:none; stroke:var(--gold); stroke-width:1.5; stroke-dasharray:5 5; opacity:.8}
+.be-out svg .vol{stroke:var(--maroon-ink); stroke-width:1.5; stroke-dasharray:3 4}
+.be-out svg .bep{fill:#fff; stroke:var(--maroon); stroke-width:3}
+.be-out svg .lbl-a{fill:var(--maroon); font-weight:700; font-size:13px} .be-out svg .lbl-s{fill:#9a7433; font-weight:700; font-size:13px} .be-out svg .lbl-b{fill:var(--maroon-ink); font-weight:700; font-size:13px}
+.be-res{display:grid; grid-template-columns:1fr 1fr 1.25fr; gap:8px}
+.be-res div{padding:6px 10px; background:var(--grey); border-top:4px solid var(--gold); font-size:13px; line-height:1.35}
+.be-res div.a{border-top-color:var(--maroon)} .be-res b{display:block; font-size:19px; color:var(--maroon)} .be-res .w b{font-size:15px}
+.slide .be-src{top:672px; width:1084px; font-size:12.5px}
+.slide .be-src a.goto, .slide .be-link a.goto{color:var(--maroon); font-weight:700; text-decoration:none}
+.slide .be-link{left:auto; right:426px; top:636px; width:190px; text-align:right; font-size:14px; line-height:1.3; border-right:3px solid var(--gold); padding-right:10px}
+@media (max-width:760px){ .be{position:static; width:auto; height:auto; grid-template-columns:1fr; margin-top:12px} .be-res{grid-template-columns:1fr} }
 @media (max-width:760px){ .uh{position:static; width:auto; margin-top:12px} .uh-row{grid-template-columns:1fr 1fr; gap:12px} .uh-row li{height:auto} .uh-row li::after{display:none} .uh-loop{display:none} }
 @media (max-width: 760px){ .sp{position:static; width:auto; height:auto; margin-top:12px} }
 </style>
@@ -1230,6 +1278,7 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
     </div>
   </div>
   <p class="small src step-with">Note: since 2023, around 2,800 data centers are planned for construction in the US.</p>
+  <p class="small src step-with dc-link"><a class="goto" href="#70" data-goto="Political ads turned against data centers">Backlash: political ads turned against data centers (appendix) &rarr;</a></p>
 </section>
 
 <!-- ============ 24 · overtaking the office cycle (old slide 24) ============ -->
@@ -1238,6 +1287,7 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
   <div class="deco corner-gwrap" aria-hidden="true"><div class="tri-gold"></div></div>
   <div class="rule" style="left:112px; top:99px; width:94px" aria-hidden="true"></div>
   <h2 class="title">Overtaking the office cycle</h2>
+  <p class="small src dc-link" style="top:176px"><a class="goto" href="#70" data-goto="Political ads turned against data centers">Backlash: political ads turned against data centers (appendix) &rarr;</a></p>
   <div class="occ" id="occ">
     <div class="occ-bar">
       <div class="occ-legend"><span><i class="occ-k-dc"></i>Data centers*</span><span><i class="occ-k-of"></i>Offices</span></div>
@@ -1558,7 +1608,7 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
       <div class="ado-tip" id="adoTip" role="tooltip" hidden></div>
     </div>
     <p class="ado-cap">Adoption has more than doubled since mid-2023 &mdash; and Anthropic passed OpenAI in May 2026</p>
-    <p class="ado-src">Source: Ramp AI Index (<a href="https://ramp.com/data/ai-index" target="_blank" rel="noopener">https://ramp.com/data/ai-index</a>). Hover for monthly values. <a class="goto" href="#66" data-goto="AI spend per employee (appendix)">AI spend per employee (appendix) &rarr;</a></p>
+    <p class="ado-src">Source: Ramp AI Index (<a href="https://ramp.com/data/ai-index" target="_blank" rel="noopener">https://ramp.com/data/ai-index</a>). Hover for monthly values. <a class="goto" href="#67" data-goto="AI spend per employee (appendix)">AI spend per employee (appendix) &rarr;</a></p>
   </div>
 </section>
 
@@ -1794,14 +1844,15 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
     <div class="st"><span class="n">5</span><h4>Measure &amp; monitor</h4><p>Accuracy, cost, errors</p></div>
   </div>
   <table class="mm">
-    <caption>Sample pilot, 10,000 emails/month (illustrative)</caption>
+    <caption>Sample pilot, 30,000 emails/month (illustrative)</caption>
     <thead><tr><th scope="col"></th><th scope="col">API</th><th scope="col">Self-hosted</th></tr></thead>
     <tbody>
       <tr><th scope="row">Accurate summaries</th><td>96%</td><td>93%</td></tr>
-      <tr><th scope="row">Cost / month</th><td>~$50</td><td>~$1,200</td></tr>
+      <tr><th scope="row">Cost / month</th><td>~$150</td><td>~$1,200</td></tr>
       <tr><th scope="row">Invented facts / 100</th><td>1.2</td><td>2.0</td></tr>
     </tbody>
   </table>
+  <p class="small src be-link"><a class="goto" href="#64" data-goto="Break-even: API vs. self-hosted">Break-even calculator<br>with error costs &rarr;</a></p>
 </section>
 
 <!-- ============ 59 · BCG 10/20/70 (old slide 59) ============ -->
@@ -2116,6 +2167,40 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
   <p class="small src uh-src">Sources: Vaswani et al. (2017), <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">&ldquo;Attention Is All You Need&rdquo;</a>; Brown et al. (2020), <a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener">GPT-3 paper</a>, Table 2.1; Radford et al. (2019), <a href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf" target="_blank" rel="noopener">GPT-2 paper</a> (vocabulary); OpenAI Help, <a href="https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them" target="_blank" rel="noopener">&ldquo;What are tokens?&rdquo;</a> (&asymp;4 characters or &frac34; word per token in English). Probabilities are the demo&rsquo;s preset values. <a class="goto" href="#21" data-goto="New York is… (live demo)">&larr; Back to the &ldquo;New York is&hellip;&rdquo; demo</a></p>
 </section>
 
+<!-- ============ appendix: API vs. open-weights break-even calculator (linked from the implementation slide) ============ -->
+<section class="slide content" data-name="Break-even: API vs. self-hosted">
+  <div class="deco tri-maroon corner-m" aria-hidden="true"></div>
+  <div class="deco corner-gwrap" aria-hidden="true"><div class="tri-gold"></div></div>
+  <div class="rule" style="left:112px; top:99px; width:94px" aria-hidden="true"></div>
+  <p class="live">Calculator</p>
+  <h2 class="title">Break-even: API vs. self-hosted</h2>
+  <div class="be">
+    <div class="be-in">
+      <div class="tabs be-pre" id="bePre" role="group" aria-label="Scenarios">
+        <button type="button" data-p="pilot" aria-pressed="true">Pilot (slide 45)</button>
+        <button type="button" data-p="tuned" aria-pressed="false">Fine-tuned open model</button>
+        <button type="button" data-p="cost" aria-pressed="false">Ignore errors</button>
+      </div>
+      <table class="be-tbl">
+        <thead><tr><th></th><th scope="col">API</th><th scope="col">Self-hosted</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Fixed cost / month ($)</th><td><input type="number" id="beFa" min="0" step="100"></td><td><input type="number" id="beFs" min="0" step="100"></td></tr>
+          <tr><th scope="row">Cost per 1,000 emails ($)</th><td><input type="number" id="beVa" min="0" step="0.5"></td><td><input type="number" id="beVs" min="0" step="0.1"></td></tr>
+          <tr><th scope="row">Accurate summaries (%)</th><td><input type="number" id="beAa" min="0" max="100" step="0.5"></td><td><input type="number" id="beAs" min="0" max="100" step="0.5"></td></tr>
+          <tr class="be-sh"><th scope="row">Cost to catch &amp; fix one error ($)</th><td colspan="2"><input type="number" id="beC" min="0" step="0.05"> <span>staff time per bad summary</span></td></tr>
+        </tbody>
+      </table>
+      <label class="be-vol"><span>Your volume</span><input type="range" id="beVolR" min="0" max="1000000" step="5000"><input type="number" id="beVol" min="0" step="1000"><span>emails / month</span></label>
+      <p class="be-f">Total cost = fixed + price &times; volume + <b>error rate &times; volume &times; cost per error</b></p>
+    </div>
+    <div class="be-out">
+      <svg id="beSvg" viewBox="0 0 640 300" role="img" aria-label="Total monthly cost of API and self-hosted models by email volume, with the break-even point"></svg>
+      <div class="be-res" id="beRes" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="small src be-src">Illustrative numbers (as on slide 45), not vendor quotes. Not in the math: data privacy, vendor lock-in, staff skills, model updates. <a class="goto" href="#45" data-goto="LLM / AI implementation in firms">&larr; Back to LLM / AI implementation in firms</a></p>
+</section>
+
 <!-- ============ 13 · rapid progress (old slide 13) ============ -->
 <section class="slide content" data-name="Applications with rapid progress">
   <div class="deco tri-maroon corner-m" aria-hidden="true"></div>
@@ -2213,6 +2298,92 @@ button.ww{cursor:pointer} button.ww:hover{border-color:var(--gold); background:v
     <p class="nvr-cap">&hellip;but demand still outstrips supply &mdash; Nvidia can&rsquo;t get TSMC to increase capacity fast enough</p>
     <p class="nvr-src">Source: Intel and Nvidia SEC filings (10-K, 10-Q, XBRL). Plotted at each fiscal quarter&rsquo;s end date; Nvidia&rsquo;s fiscal year ends in late January. Some Q4 values are annual revenue less Q1&ndash;Q3. Hover for quarterly values</p>
   </div>
+</section>
+
+<!-- ============ data-center political ads (Pew) ============ -->
+<section class="slide content" data-name="Political ads turned against data centers">
+  <div class="deco tri-maroon corner-m" aria-hidden="true"></div>
+  <div class="deco corner-gwrap" aria-hidden="true"><div class="tri-gold"></div></div>
+  <div class="rule" style="left:112px; top:99px; width:94px" aria-hidden="true"></div>
+  <h2 class="title">Political ads turned against data centers</h2>
+  <div class="dc">
+    <p class="dc-sub">% of U.S. political ads on Facebook and Instagram mentioning data centers that take an <b class="dc-anti">anti</b> or <b class="dc-pro">pro</b> stance, 2026</p>
+    <svg viewBox="0 0 1000 362" role="img" aria-label="Line chart, January to October 2026: anti-data-center ads rise from 31% to between 57% and 64% from April on; pro-data-center ads fall from 42% to 3% in October">
+      <line x1="70" x2="900" y1="330.0" y2="330.0" class="dc-grid dc-base"/>
+      <text x="58" y="335.0" text-anchor="end" class="dc-ax">0%</text>
+      <line x1="70" x2="900" y1="285.7" y2="285.7" class="dc-grid"/>
+      <text x="58" y="290.7" text-anchor="end" class="dc-ax">10%</text>
+      <line x1="70" x2="900" y1="241.4" y2="241.4" class="dc-grid"/>
+      <text x="58" y="246.4" text-anchor="end" class="dc-ax">20%</text>
+      <line x1="70" x2="900" y1="197.1" y2="197.1" class="dc-grid"/>
+      <text x="58" y="202.1" text-anchor="end" class="dc-ax">30%</text>
+      <line x1="70" x2="900" y1="152.9" y2="152.9" class="dc-grid"/>
+      <text x="58" y="157.9" text-anchor="end" class="dc-ax">40%</text>
+      <line x1="70" x2="900" y1="108.6" y2="108.6" class="dc-grid"/>
+      <text x="58" y="113.6" text-anchor="end" class="dc-ax">50%</text>
+      <line x1="70" x2="900" y1="64.3" y2="64.3" class="dc-grid"/>
+      <text x="58" y="69.3" text-anchor="end" class="dc-ax">60%</text>
+      <line x1="70" x2="900" y1="20.0" y2="20.0" class="dc-grid"/>
+      <text x="58" y="25.0" text-anchor="end" class="dc-ax">70%</text>
+      <text x="70.0" y="356" text-anchor="middle" class="dc-ax">Jan</text>
+      <text x="162.2" y="356" text-anchor="middle" class="dc-ax">Feb</text>
+      <text x="254.4" y="356" text-anchor="middle" class="dc-ax">Mar</text>
+      <text x="346.7" y="356" text-anchor="middle" class="dc-ax">Apr</text>
+      <text x="438.9" y="356" text-anchor="middle" class="dc-ax">May</text>
+      <text x="531.1" y="356" text-anchor="middle" class="dc-ax">Jun</text>
+      <text x="623.3" y="356" text-anchor="middle" class="dc-ax">Jul</text>
+      <text x="715.6" y="356" text-anchor="middle" class="dc-ax">Aug</text>
+      <text x="807.8" y="356" text-anchor="middle" class="dc-ax">Sep</text>
+      <text x="900.0" y="356" text-anchor="middle" class="dc-ax">Oct</text>
+      <polyline points="70.0,192.7 162.2,99.7 254.4,144.0 346.7,77.6 438.9,77.6 531.1,46.6 623.3,64.3 715.6,55.4 807.8,59.9 900.0,77.6" class="dc-line dc-anti"/>
+      <circle cx="70.0" cy="192.7" r="5" class="dc-dot dc-anti"/>
+      <text x="70.0" y="214.7" text-anchor="middle" class="dc-val dc-anti">31</text>
+      <circle cx="162.2" cy="99.7" r="5" class="dc-dot dc-anti"/>
+      <text x="162.2" y="87.7" text-anchor="middle" class="dc-val dc-anti">52</text>
+      <circle cx="254.4" cy="144.0" r="5" class="dc-dot dc-anti"/>
+      <text x="254.4" y="132.0" text-anchor="middle" class="dc-val dc-anti">42</text>
+      <circle cx="346.7" cy="77.6" r="5" class="dc-dot dc-anti"/>
+      <text x="346.7" y="65.6" text-anchor="middle" class="dc-val dc-anti">57</text>
+      <circle cx="438.9" cy="77.6" r="5" class="dc-dot dc-anti"/>
+      <text x="438.9" y="65.6" text-anchor="middle" class="dc-val dc-anti">57</text>
+      <circle cx="531.1" cy="46.6" r="5" class="dc-dot dc-anti"/>
+      <text x="531.1" y="34.6" text-anchor="middle" class="dc-val dc-anti">64</text>
+      <circle cx="623.3" cy="64.3" r="5" class="dc-dot dc-anti"/>
+      <text x="623.3" y="52.3" text-anchor="middle" class="dc-val dc-anti">60</text>
+      <circle cx="715.6" cy="55.4" r="5" class="dc-dot dc-anti"/>
+      <text x="715.6" y="43.4" text-anchor="middle" class="dc-val dc-anti">62</text>
+      <circle cx="807.8" cy="59.9" r="5" class="dc-dot dc-anti"/>
+      <text x="807.8" y="47.9" text-anchor="middle" class="dc-val dc-anti">61</text>
+      <circle cx="900.0" cy="77.6" r="5" class="dc-dot dc-anti"/>
+      <text x="900.0" y="65.6" text-anchor="middle" class="dc-val dc-anti">57</text>
+      <polyline points="70.0,144.0 162.2,268.0 254.4,197.1 346.7,245.9 438.9,303.4 531.1,303.4 623.3,303.4 715.6,294.6 807.8,294.6 900.0,316.7" class="dc-line dc-pro"/>
+      <circle cx="70.0" cy="144.0" r="5" class="dc-dot dc-pro"/>
+      <text x="70.0" y="132.0" text-anchor="middle" class="dc-val dc-pro">42</text>
+      <circle cx="162.2" cy="268.0" r="5" class="dc-dot dc-pro"/>
+      <text x="162.2" y="290.0" text-anchor="middle" class="dc-val dc-pro">14</text>
+      <circle cx="254.4" cy="197.1" r="5" class="dc-dot dc-pro"/>
+      <text x="254.4" y="219.1" text-anchor="middle" class="dc-val dc-pro">30</text>
+      <circle cx="346.7" cy="245.9" r="5" class="dc-dot dc-pro"/>
+      <text x="346.7" y="267.9" text-anchor="middle" class="dc-val dc-pro">19</text>
+      <circle cx="438.9" cy="303.4" r="5" class="dc-dot dc-pro"/>
+      <text x="438.9" y="325.4" text-anchor="middle" class="dc-val dc-pro">6</text>
+      <circle cx="531.1" cy="303.4" r="5" class="dc-dot dc-pro"/>
+      <text x="531.1" y="325.4" text-anchor="middle" class="dc-val dc-pro">6</text>
+      <circle cx="623.3" cy="303.4" r="5" class="dc-dot dc-pro"/>
+      <text x="623.3" y="325.4" text-anchor="middle" class="dc-val dc-pro">6</text>
+      <circle cx="715.6" cy="294.6" r="5" class="dc-dot dc-pro"/>
+      <text x="715.6" y="316.6" text-anchor="middle" class="dc-val dc-pro">8</text>
+      <circle cx="807.8" cy="294.6" r="5" class="dc-dot dc-pro"/>
+      <text x="807.8" y="316.6" text-anchor="middle" class="dc-val dc-pro">8</text>
+      <circle cx="900.0" cy="316.7" r="5" class="dc-dot dc-pro"/>
+      <text x="900.0" y="338.7" text-anchor="middle" class="dc-val dc-pro">3</text>
+      <text x="914" y="83.6" class="dc-lab dc-anti">Anti</text>
+      <text x="914" y="322.7" class="dc-lab dc-pro">Pro</text>
+    </svg>
+    <p class="dc-cap">From February on, opposing ads outnumber supporting ones; by October it is 57% vs. 3%</p>
+  </div>
+  <p class="small src dc-src">Source: Pew Research Center, analysis of 20,751 U.S. ads about social issues, elections or politics on Facebook or Instagram that mention data centers (Jan. 1 &ndash; Oct. 24, 2026). Ads without a clear stance not shown.<br>
+  <a class="goto" href="#15" data-goto="More compute, data, architecture">&larr; Back to More compute &amp; data</a> &nbsp;&middot;&nbsp; <a class="goto" href="#16" data-goto="Overtaking the office cycle">&larr; Back to Overtaking the office cycle</a></p>
 </section>
 
 <!-- ============ 34 · OpenAI stages (old slide 34) ============ -->
@@ -3231,5 +3402,62 @@ draw();
   const btns=document.querySelectorAll('#spScale button');
   btns.forEach(b=>b.onclick=()=>{ btns.forEach(x=>x.setAttribute('aria-pressed',String(x===b))); scale=b.dataset.v; draw(); });
   draw();
+})();
+</script>
+<script>
+/* break-even calculator: total monthly cost = fixed + price x volume + error rate x volume x cost per error */
+(function(){
+  const svg=document.getElementById('beSvg'); if(!svg) return;
+  const g=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
+  const F=['beFa','beFs','beVa','beVs','beAa','beAs','beC','beVol'];
+  const P={ pilot:{beFa:0,beFs:1200,beVa:5,beVs:0.5,beAa:96,beAs:93,beC:0.5,beVol:30000},
+            tuned:{beFa:0,beFs:1200,beVa:5,beVs:0.5,beAa:96,beAs:96,beC:0.5,beVol:300000},
+            cost: {beFa:0,beFs:1200,beVa:5,beVs:0.5,beAa:96,beAs:93,beC:0,beVol:300000} };
+  const btns=()=>[...document.querySelectorAll('#bePre button')];
+  const num=id=>{ const v=parseFloat(g(id).value); return isFinite(v)&&v>=0?v:0; };
+  const usd=v=>'$'+(v>=100||v===0?Math.round(v).toLocaleString('en-US'):v.toFixed(2));
+  const cnt=v=>v>=1e6?(+(v/1e6).toFixed(1))+'M':v>=1e3?Math.round(v/1e3).toLocaleString('en-US')+'k':String(Math.round(v));
+  const nice=v=>{ const e=Math.pow(10,Math.floor(Math.log10(v))); for(const m of [1,2,2.5,5,10]) if(m*e>=v) return m*e; return 10*e; };
+  function set(p){ for(const k in P[p]) g(k).value=P[p][k]; g('beVolR').value=Math.min(P[p].beVol,1e6); btns().forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.p===p))); draw(); }
+  function el(t,a,txt){ const e=document.createElementNS(NS,t); for(const k in a) e.setAttribute(k,a[k]); if(txt!=null) e.textContent=txt; svg.appendChild(e); return e; }
+  function draw(){
+    const fa=num('beFa'), fs=num('beFs'), va=num('beVa')/1000, vs=num('beVs')/1000, c=num('beC'), vol=num('beVol');
+    const ea=Math.min(1,Math.max(0,1-num('beAa')/100)), es=Math.min(1,Math.max(0,1-num('beAs')/100));
+    const ua=va+ea*c, us=vs+es*c;
+    const A=x=>fa+ua*x, S=x=>fs+us*x;
+    let be;
+    if(ua>us) be=(fs-fa)/(ua-us); else be=(fs<=fa&&us<=ua)?0:Infinity;
+    const beOk=isFinite(be)&&be>0;
+    const xmax=nice(Math.max(beOk?be*1.6:0, vol*1.25, 50000));
+    const ymax=nice(Math.max(A(xmax),S(xmax),fs,fa,1)*1.08);
+    svg.textContent='';
+    const L=62,R=620,T=14,B=262, X=x=>L+(R-L)*x/xmax, Y=y=>B-(B-T)*y/ymax;
+    for(let i=0;i<=4;i++){ const y=ymax*i/4; el('line',{x1:L,x2:R,y1:Y(y),y2:Y(y),class:i?'gl':'ax'}); el('text',{x:L-8,y:Y(y)+4,'text-anchor':'end'},usd(y)); }
+    for(let i=0;i<=5;i++){ const x=xmax*i/5; el('text',{x:X(x),y:B+18,'text-anchor':'middle'},cnt(x)); }
+    el('line',{x1:L,x2:L,y1:T,y2:B,class:'ax'});
+    el('text',{x:(L+R)/2,y:B+36,'text-anchor':'middle'},'emails per month');
+    el('text',{x:L,y:T-4,'text-anchor':'start'},'total cost per month');
+    if(c>0){ el('line',{x1:X(0),y1:Y(fa),x2:X(xmax),y2:Y(fa+va*xmax),class:'lan'}); el('line',{x1:X(0),y1:Y(fs),x2:X(xmax),y2:Y(fs+vs*xmax),class:'lsn'}); el('text',{x:R,y:T-4,'text-anchor':'end'},'dashed = before error costs'); }
+    el('line',{x1:X(0),y1:Y(A(0)),x2:X(xmax),y2:Y(A(xmax)),class:'la'});
+    el('line',{x1:X(0),y1:Y(S(0)),x2:X(xmax),y2:Y(S(xmax)),class:'ls'});
+    let ya=Y(A(xmax))-8, ys=Y(S(xmax))-8;
+    if(Math.abs(ya-ys)<16){ if(ya<=ys) ys=ya+16; else ya=ys+16; }
+    el('text',{x:R-4,y:Math.max(T+12,ya),'text-anchor':'end',class:'lbl-a'},'API');
+    el('text',{x:R-4,y:Math.max(T+12,ys),'text-anchor':'end',class:'lbl-s'},'Self-hosted');
+    if(vol>0&&vol<=xmax){ el('line',{x1:X(vol),x2:X(vol),y1:T,y2:B,class:'vol'}); el('text',{x:X(vol)+5,y:T+14,class:'lbl-b'},'you'); }
+    if(beOk&&be<=xmax){ el('circle',{cx:X(be),cy:Y(A(be)),r:7,class:'bep'}); el('text',{x:X(be)+12,y:Y(A(be))+20,'text-anchor':'start',class:'lbl-b'},'break-even ≈ '+cnt(be)); }
+    const ca=A(vol), cs=S(vol);
+    let msg;
+    if(beOk) msg='<b>Break-even ≈ '+cnt(be)+' emails / month</b>Above that volume, self-hosting is cheaper all-in.';
+    else if(be===0) msg='<b>Self-hosted is cheaper at any volume</b>Lower fixed cost and lower all-in cost per email.';
+    else msg='<b>No break-even</b>Self-hosted costs '+usd(us*1000)+' per 1,000 emails all-in vs. '+usd(ua*1000)+' for the API: its extra errors eat the savings.';
+    g('beRes').innerHTML='<div class="a">API at your volume<b>'+usd(ca)+'</b>'+usd(fa+va*vol)+' running + '+usd(ea*c*vol)+' errors</div>'+
+      '<div>Self-hosted at your volume<b>'+usd(cs)+'</b>'+usd(fs+vs*vol)+' running + '+usd(es*c*vol)+' errors</div>'+
+      '<div class="w">'+msg+'</div>';
+  }
+  F.forEach(id=>g(id).addEventListener('input',()=>{ if(id==='beVol') g('beVolR').value=Math.min(num('beVol'),1e6); btns().forEach(b=>b.setAttribute('aria-pressed','false')); draw(); }));
+  g('beVolR').addEventListener('input',()=>{ g('beVol').value=g('beVolR').value; draw(); });
+  btns().forEach(b=>b.addEventListener('click',()=>set(b.dataset.p)));
+  set('pilot');
 })();
 </script>
